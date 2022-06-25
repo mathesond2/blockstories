@@ -1,0 +1,36 @@
+// THE SINGLE TRANSACTION RESPONSE OBJECT
+// https://www.covalenthq.com/docs/api/#/0/Get%20a%20transaction/USD/1
+
+{
+    "data":{
+       "updated_at":"2022-06-25T16:58:51.690944023Z",
+       "items":[
+          {
+             "block_signed_at":"2022-06-25T16:53:40Z",
+             "block_height":15024629,
+             "tx_hash":"0x945b62d029c4b536a860216682172ac3a85a3736d5243e7f3d7529dc21b25b5b",
+             "tx_offset":214,
+             "successful":true,
+             "from_address":"0x00192fb10df37c9fb26829eb2cc623cd1bf599e8",
+             "from_address_label":"2Miners: PPLNS",
+             "to_address":"0x719c51740d47371e3543756eaa4c8656441912a5",
+             "to_address_label":null,
+             "value":"98331989000000000",
+             "value_quote":117.31146727674523,
+             "gas_offered":21000,
+             "gas_spent":21000,
+             "gas_price":32452886904,
+             "fees_paid":"681510624984000",
+             "gas_quote":0.8130519090950628,
+             "gas_quote_rate":1193.0142822265625,
+             "log_events":[
+                
+             ]
+          }
+       ],
+       "pagination":null
+    },
+    "error":false,
+    "error_message":null,
+    "error_code":null
+ }
