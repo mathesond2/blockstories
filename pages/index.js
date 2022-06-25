@@ -10,10 +10,6 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Nav from "../components/nav";
-import SingleTx from "../components/SingleTx";
-
-const TEST_TX =
-  "0x945b62d029c4b536a860216682172ac3a85a3736d5243e7f3d7529dc21b25b5b";
 
 export default function Home() {
   return (
@@ -27,7 +23,6 @@ export default function Home() {
       <Nav />
 
       <main className={styles.main}>
-        <SingleTx txHash={TEST_TX} />
         <Container maxW="container.xl">
           <Accordion>
             <AccordionItem>
