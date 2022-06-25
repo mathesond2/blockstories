@@ -14,3 +14,26 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.link-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link-list__item {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  height: 4.5rem;
+  padding-inline-start: 2rem;
+  padding-inline-end: 2rem;
+}
