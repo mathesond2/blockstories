@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 import {
   Accordion,
   Box,
@@ -8,8 +8,12 @@ import {
   AccordionPanel,
   AccordionIcon,
   Container,
-} from '@chakra-ui/react'
-import Nav from '../components/nav';
+} from "@chakra-ui/react";
+import Nav from "../components/nav";
+import SingleTx from "../components/SingleTx";
+
+const TEST_TX =
+  "0x945b62d029c4b536a860216682172ac3a85a3736d5243e7f3d7529dc21b25b5b";
 
 export default function Home() {
   return (
@@ -20,47 +24,48 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav/>
+      <Nav />
 
       <main className={styles.main}>
+        <SingleTx txHash={TEST_TX} />
         <Container maxW="container.xl">
           <Accordion>
             <AccordionItem>
               <h2>
                 <AccordionButton>
-                  <Box flex='1' textAlign='left'>
+                  <Box flex="1" textAlign="left">
                     Section 1 title
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
 
             <AccordionItem>
               <h2>
                 <AccordionButton>
-                  <Box flex='1' textAlign='left'>
+                  <Box flex="1" textAlign="left">
                     Section 2 title
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
         </Container>
       </main>
     </div>
-  )
+  );
 }
