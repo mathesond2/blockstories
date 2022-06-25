@@ -17,7 +17,7 @@ const Nav = () => (
           <Link href='/dashboard'>dashboard</Link>
         </li>
         <li className="link-list__item">
-          <a href="/about">about</a>
+          <Link href="/about">about</Link>
         </li>
       </ul>
     </nav>
