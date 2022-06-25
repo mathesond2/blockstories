@@ -8,8 +8,9 @@ import {
   AccordionPanel,
   AccordionIcon,
   Container,
-} from "@chakra-ui/react";
-import Nav from "../components/nav";
+} from '@chakra-ui/react'
+import Nav from '../components/nav';
+import Footer from '../components/footer';
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav />
+
+      <Nav/>
 
       <main className={styles.main}>
         <Container maxW="container.xl">
@@ -61,6 +63,7 @@ export default function Home() {
           </Accordion>
         </Container>
       </main>
+      <Footer/>
     </div>
   );
 }

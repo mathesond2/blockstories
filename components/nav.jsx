@@ -1,26 +1,32 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { Container } from '@chakra-ui/react'
+import {
+  Container,
+  Input,
+  Button
+
+ } from '@chakra-ui/react'
 
 const Nav = () => (
   <Container maxW="container.xl" className="top-nav">
-    <strong>
-      <Link href='/'>BlockStories</Link>
-    </strong>
-
     <nav>
       <ul className="link-list">
         <li className="link-list__item">
-          <Link href='/my-stories'>my stories</Link>
+          <Link href='/'>BlockStories</Link>
         </li>
         <li className="link-list__item">
-          <Link href='/dashboard'>dashboard</Link>
+          <Input placeholder='search...' />
         </li>
         <li className="link-list__item">
-          <Link href="/about">about</Link>
+          <Link href='/my-stories'>Explore</Link>
+        </li>
+        <li className="link-list__item">
+          <Link href='/dashboard'>Create</Link>
         </li>
       </ul>
     </nav>
+
+    <Button variant='outline'>Login</Button>
   </Container>
 );
 

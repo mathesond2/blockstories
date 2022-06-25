@@ -26,6 +26,11 @@ a {
   font-weight: bold;
 }
 
+.link-list__item a {
+  vertical-align: text-top;
+  line-height: 2rem;
+}
+
 .top-nav {
   display: flex;
   flex-direction: row;
@@ -33,7 +38,16 @@ a {
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  height: 4.5rem;
   padding-inline-start: 2rem;
   padding-inline-end: 2rem;
+  padding: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer .link-list {
+  justify-content: center;
 }
