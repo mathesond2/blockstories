@@ -42,3 +42,12 @@ a {
   padding-inline-end: 2rem;
   padding: 2rem;
 }
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer .link-list {
+  justify-content: center;
+}
