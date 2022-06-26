@@ -34,6 +34,7 @@ export {
   recommendProfiles,
   getProfiles,
   getPublications,
+  getPublication,
   searchProfiles,
   searchPublications,
   explorePublications,
