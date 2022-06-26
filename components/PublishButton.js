@@ -112,6 +112,9 @@ const PublishButton = ({ nftData, isDisabled }) => {
     setIsLoading(true);
 
     console.log({NFT_STORAGE_API_KEY});
+    let apiKey = process.env.NFT_STORAGE_API_KEY;
+    console.log({apiKey});
+    
     const storage = new NFTStorage({ token: NFT_STORAGE_API_KEY });
     let nftDataText = JSON.stringify(nftData);
     console.log(nftDataText);
