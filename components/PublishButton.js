@@ -111,11 +111,10 @@ const PublishButton = ({ nftData, isDisabled }) => {
   async function processNftData(nftData) {
     setIsLoading(true);
 
-    console.log({NFT_STORAGE_API_KEY});
-    let apiKey = process.env.NFT_STORAGE_API_KEY;
+    let apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEY0NWY5OGE4NTQzODMyNTkzYTIxOUQ5MzA3N2IzMzIxNTBlM0NkZDAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1NjE5MTkyNDA1NiwibmFtZSI6ImJsb2Nrc3RvcmllcyJ9.bAp8zQULYsAJYWyy-pKriKzhwIJwXfaRuNgcR-EpBns';
     console.log({apiKey});
     
-    const storage = new NFTStorage({ token: NFT_STORAGE_API_KEY });
+    const storage = new NFTStorage({ token: apiKey });
     let nftDataText = JSON.stringify(nftData);
     console.log(nftDataText);
 
