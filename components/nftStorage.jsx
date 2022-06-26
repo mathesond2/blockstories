@@ -2,7 +2,8 @@ import { NFTStorage, File } from "nft.storage"
 import {Button} from '@chakra-ui/react'
 
 const NFT_STORAGE_API_KEY = process.env.NFT_STORAGE_API_KEY
-const BS_API_ENDPOINT = 'http://localhost:4000'
+// const BS_API_ENDPOINT = process.env.BS_API_ENDPOINT
+const BS_API_ENDPOINT = 'http://localhost:3000'
 console.log(BS_API_ENDPOINT)
 
 async function processNftData(nftData) {
@@ -20,12 +21,16 @@ async function processNftData(nftData) {
   //
 
   nftData.lensPubId = "dummy-lens-pub-id"
+  nftDataText = JSON.stringify(nftData)
+
+  console.log({nftDataText})
   const response = await fetch(BS_API_ENDPOINT + '/v1/stories/', {
     method: 'POST',
+    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: nftData
+    body: nftDataText
   })
   const storyId = response.id
   console.log({storyId})
