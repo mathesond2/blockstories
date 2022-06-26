@@ -98,3 +98,7 @@ a {
   opacity: 1!important;
   cursor: initial;
 }
+
+nav .link-list__item:first-of-type {
+  margin-left: 0;
+}
