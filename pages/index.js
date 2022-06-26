@@ -38,7 +38,7 @@ export default function Home() {
           <Box mb={8}>
             <Heading as='h1'mb={4}>Blockstories</Heading>
             <Text fontSize='xl'>
-              The blockchain's footnote tool. Create  stories that appear as timelines annotating a series of transactions with your comments. Alternate stories from other writers are overlayed on top of yours.
+              The blockchain&apos;s footnote tool. Create  stories that appear as timelines annotating a series of transactions with your comments. Alternate stories from other writers are overlayed on top of yours.
             </Text>
             <Text fontSize='xl' mt={4}>
               Expose a hack, research a wallet or track the life of an NFT.
