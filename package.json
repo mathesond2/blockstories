@@ -9,18 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@urql/exchange-auth": "^0.1.7",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "cross-fetch": "^3.1.5",
+    "ethers": "^5.6.9",
     "framer-motion": "^6.3.15",
+    "graphql": "^16.5.0",
     "humanize-duration": "^3.27.2",
     "next": "12.1.6",
     "nft.storage": "^6.3.0",
+    "omit-deep": "^0.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "urql": "^2.2.2"
   },
   "devDependencies": {
     "eslint": "8.18.0",
