@@ -9,7 +9,7 @@ export default function About() {
       <HeadMetadata/>
       <Nav/>
 
-      <main className={styles.main}>
+      <main>
         <Container maxW="container.xl">
           <h1 className={styles.title}>About</h1>
         </Container>

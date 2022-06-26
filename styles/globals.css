@@ -51,3 +51,49 @@ a {
 .footer .link-list {
   justify-content: center;
 }
+
+.list-item {
+  list-style: none;
+}
+
+.single-tx-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storyblocks-wrapper {
+  border-right: solid .5rem #aafe2d;
+  padding-right: 1rem;
+}
+
+.trash-icon {
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit-button {
+  background-color: #aafe2d!important;
+}
+
+.story-title {
+  font-size: 4rem!important;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.textarea {
+  border-color: transparent!important;
+}
+
+.textarea:disabled {
+  opacity: 1!important;
+  cursor: initial;
+}

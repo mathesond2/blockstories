@@ -18,10 +18,10 @@ const Nav = () => (
           <Input placeholder='search...' />
         </li>
         <li className="link-list__item">
-          <Link href='/my-stories'>Explore</Link>
+          <Link href='/explore'>Explore</Link>
         </li>
         <li className="link-list__item">
-          <Link href='/dashboard'>Create</Link>
+          <Link href='/create'>Create</Link>
         </li>
       </ul>
     </nav>
