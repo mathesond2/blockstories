@@ -91,9 +91,6 @@ function MyApp({ Component, pageProps }) {
                 <Input placeholder="search..." />
               </li>
               <li className="link-list__item">
-                <Link href="/explore">Explore</Link>
-              </li>
-              <li className="link-list__item">
                 <Link href="/create">Create</Link>
               </li>
             </ul>
