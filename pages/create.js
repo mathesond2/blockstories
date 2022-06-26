@@ -7,28 +7,13 @@ import {
   Input,
   Button,
   Box,
-  Textarea
+  Textarea,
+  Circle
  } from '@chakra-ui/react';
+ import { CheckIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useState } from 'react';
 import SingleTx from '../components/SingleTx';
 import Axios from "axios";
-
-/* {
-  title: 'Home'
-  comments: [
-    {
-    txId: '0x1234567890123456789012345678901234567890',
-    timestamp: '',
-    comment: 'This is a comment'
-    },
-    {
-    hash: '0x1234567890123456789012345678901234567890'
-    timestamp: '',
-    comment: 'This is a comment'
-    }
-  ]
-}
-*/
 
 function StoryBlock(props) {
   const {onRemove, onAdd} = props;
@@ -60,6 +45,7 @@ function StoryBlock(props) {
           <Input
             placeholder='Add transaction hash'
             size='lg'
+            variant='unstyled'
             onChange={(e) => setTxnHash(e.currentTarget.value)}
             disabled={txnHashData}
           />
@@ -84,13 +70,15 @@ function StoryBlock(props) {
       )}
 
       <Stack direction='row' spacing={4}>
-        <Button variant='outline' onClick={onRemove}>
-          remove
+        <Button variant='ghost' onClick={onRemove}>
+          <DeleteIcon/>
         </Button>
         {isAdded ?
-          <p>Added</p> :
+          <Circle size='40px' bg='#00501e' color='white'>
+            <CheckIcon />
+          </Circle> :
           <Button
-            variant='outline'
+            variant='ghost'
             onClick={() => {
                 setIsAdded(true);
                 onAdd({
@@ -124,7 +112,13 @@ export default function Create() {
       <main>
       <Container maxW="container.xl">
         <Stack spacing={3} mb={4}>
-          <Input placeholder='Add story title' size='lg' onChange={(e) => setTitle(e.currentTarget.value) }/>
+          <Input
+            variant='unstyled'
+            placeholder='Add story title'
+            size='lg'
+            onChange={(e) => setTitle(e.currentTarget.value) }
+            className="story-title"
+          />
         </Stack>
 
         <Box className="storyblocks-wrapper">
@@ -149,31 +143,32 @@ export default function Create() {
           ))}
         </Box>
 
-        <div>
-          <Button
-            variant='outline'
-            disabled={!title.length}
-            onClick={() => {
-              setStoryComments([...storyComments, {}])
-            }}
-          >
-            Add {storyComments.length ? 'another' : 'a'} transaction
-          </Button>
-
-          {storyComments.length > 0 &&
-          storyComments.length > 0 && (
+          <Box className="actions-container" mb={12}>
             <Button
               variant='outline'
-              disabled={!(
-              title.length &&
-              storyComments?.length
-              )}
+              disabled={!title.length}
+              onClick={() => {
+                setStoryComments([...storyComments, {}])
+              }}
             >
-              Publish
+              Add {storyComments.length ? 'another' : 'a'} transaction
             </Button>
-          )}
 
-        </div>
+            {storyComments.length > 0 &&
+            storyComments.length > 0 && (
+              <Button
+                className='submit-button'
+                variant='solid'
+                disabled={!(
+                title.length &&
+                storyComments?.length
+                )}
+              >
+                Publish
+              </Button>
+            )}
+
+          </Box>
         </Container>
       </main>
     </div>

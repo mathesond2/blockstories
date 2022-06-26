@@ -1,11 +1,4 @@
-import {
-  Link,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from '@chakra-ui/react'
+import { Link } from '@chakra-ui/react'
 import humanizeDuration from "humanize-duration";
 
 export default function SingleTx({ txn }) {
@@ -20,7 +13,7 @@ export default function SingleTx({ txn }) {
   return (
     <>
       <div className='single-tx-flex-wrapper'>
-      <Link href={`https://etherscan.io/tx/${txn?.tx_hash}`} color='teal.500' isExternal>
+      <Link href={`https://etherscan.io/tx/${txn?.tx_hash}`} color='blue.500' isExternal>
         {txn?.tx_hash }
       </Link >
       <p>{humanizedCreatedAtTime} ago</p>

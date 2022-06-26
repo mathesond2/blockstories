@@ -64,6 +64,27 @@ a {
 }
 
 .storyblocks-wrapper {
-  border-right: solid .5rem black;
+  border-right: solid .5rem #aafe2d;
   padding-right: 1rem;
+}
+
+.trash-icon {
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit-button {
+  background-color: #aafe2d!important;
+}
+
+.story-title {
+  font-size: 4rem!important;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
