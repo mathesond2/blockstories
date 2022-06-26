@@ -20,8 +20,12 @@ async function processNftData(nftData) {
   // Call Lens create post api
   //
 
-  nftData.lensPubId = "duy-443ddd"
-  console.log(nftData)
+
+  nftData.lensPubId = "dummy-lens-pub-id"
+  nftDataText = nftData
+
+  console.log({nftDataText})
+
   const response = await fetch(BS_API_ENDPOINT + '/v1/stories/', {
     method: 'POST',
     mode: 'cors',
@@ -34,6 +38,7 @@ async function processNftData(nftData) {
   const json = await response.json()
   const storyId = json.id
   console.log({storyId})
+  console.log(nftData)
   return storyId
 }
 
