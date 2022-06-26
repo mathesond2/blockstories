@@ -2,8 +2,8 @@ import { NFTStorage, File } from "nft.storage"
 import {Button} from '@chakra-ui/react'
 
 const NFT_STORAGE_API_KEY = process.env.NFT_STORAGE_API_KEY
-// const BS_API_ENDPOINT = process.env.BS_API_ENDPOINT
-const BS_API_ENDPOINT = 'http://localhost:3000'
+const BS_API_ENDPOINT = process.env.BS_API_ENDPOINT
+// const BS_API_ENDPOINT = 'http://localhost:3000'
 console.log(BS_API_ENDPOINT)
 
 async function processNftData(nftData) {
