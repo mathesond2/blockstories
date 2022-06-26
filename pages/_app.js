@@ -11,6 +11,7 @@ import {
   getChallenge,
 } from "../api";
 import { parseJwt, refreshAuthToken } from "../utils";
+import Profile from "../components/Profile";
 
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true);
@@ -102,12 +103,12 @@ function MyApp({ Component, pageProps }) {
               </li>
             </ul>
           </nav>
-          {!connected ? (
+          {!connected || !userAddress ? (
             <Button variant="outline" onClick={signIn}>
               Sign in
             </Button>
           ) : (
-            <p>Logged-In!</p>
+            <p>You are logged-in!</p>
           )}
         </Container>
         <Component {...pageProps} />
@@ -117,3 +118,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+/**<Profile userAddress={userAddress} /> */
