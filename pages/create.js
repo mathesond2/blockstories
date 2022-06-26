@@ -16,7 +16,7 @@ import SingleTx from '../components/SingleTx';
 import Axios from "axios";
 
 function StoryBlock(props) {
-  const {onRemove, onAdd} = props;
+  const {onRemove, onAdd, isPublished} = props;
   const [txnHash, setTxnHash] = useState();
   const [txnHashData, setTxnHashData] = useState();
   const [txnHashComment, setTxnHashComment] = useState();
@@ -62,37 +62,41 @@ function StoryBlock(props) {
           <SingleTx txn={txnHashData} />
           <Textarea
             value={txnHashComment}
+            className="textarea"
             onChange={(e) => setTxnHashComment(e.currentTarget.value)}
             placeholder='Tell us about this transaction'
             size='md'
+            disabled={isPublished}
           />
         </>
       )}
 
-      <Stack direction='row' spacing={4}>
-        <Button variant='ghost' onClick={onRemove}>
-          <DeleteIcon/>
-        </Button>
-        {isAdded ?
-          <Circle size='40px' bg='#00501e' color='white'>
-            <CheckIcon />
-          </Circle> :
-          <Button
-            variant='ghost'
-            onClick={() => {
-                setIsAdded(true);
-                onAdd({
-                  txId: txnHash,
-                  timestamp: txnHashData.block_signed_at,
-                  comment: txnHashComment
-              })}
+        {!isPublished && (
+          <Stack direction='row' spacing={4}>
+            <Button variant='ghost' onClick={onRemove}>
+              <DeleteIcon/>
+            </Button>
+            {isAdded ?
+              <Circle size='40px' bg='#00501e' color='white'>
+                <CheckIcon />
+              </Circle> :
+              <Button
+                variant='ghost'
+                onClick={() => {
+                    setIsAdded(true);
+                    onAdd({
+                      txId: txnHash,
+                      timestamp: txnHashData.block_signed_at,
+                      comment: txnHashComment
+                  })}
+                }
+                disabled={isAdded || !txnHashData}
+              >
+              add to story
+            </Button>
             }
-            disabled={isAdded || !txnHashData}
-          >
-          add to story
-        </Button>
-        }
-      </Stack>
+          </Stack>
+        )}
     </Stack>
   )
 }
@@ -103,6 +107,8 @@ function StoryBlock(props) {
 export default function Create() {
   const [storyComments, setStoryComments] = useState([]);
   const [title, setTitle] = useState('');
+  const [isPublished, setIsPublished] = useState(false);
+
 
   return (
     <div className={styles.container}>
@@ -124,7 +130,8 @@ export default function Create() {
         <Box className="storyblocks-wrapper">
           {storyComments?.map((_, i) => (
             <StoryBlock
-              key={i}
+            key={i}
+              isPublished={isPublished}
               onRemove={() => {
                 const filteredComments = storyComments.filter((_, j) => j !== i);
                 setStoryComments(filteredComments)
@@ -143,32 +150,39 @@ export default function Create() {
           ))}
         </Box>
 
-          <Box className="actions-container" mb={12}>
-            <Button
-              variant='outline'
-              disabled={!title.length}
-              onClick={() => {
-                setStoryComments([...storyComments, {}])
-              }}
-            >
-              Add {storyComments.length ? 'another' : 'a'} transaction
-            </Button>
-
-            {storyComments.length > 0 &&
-            storyComments.length > 0 && (
+        {
+          !isPublished && (
+            <Box className="actions-container" mb={12}>
               <Button
-                className='submit-button'
-                variant='solid'
-                disabled={!(
-                title.length &&
-                storyComments?.length
-                )}
+                variant='outline'
+                disabled={!title.length}
+                onClick={() => {
+                  setStoryComments([...storyComments, {}])
+                }}
               >
-                Publish
+                Add {storyComments.length ? 'another' : 'a'} transaction
               </Button>
-            )}
 
+              {storyComments.length > 0 &&
+              storyComments.length > 0 && (
+                <Button
+                  className='submit-button'
+                  variant='solid'
+                  disabled={!(
+                  title.length &&
+                  storyComments?.length
+                  )}
+                  onClick={() => {
+                    setIsPublished(true);
+                  }}
+                >
+                  Publish
+                </Button>
+              )}
           </Box>
+          )
+        }
+
         </Container>
       </main>
     </div>

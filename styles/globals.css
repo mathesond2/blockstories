@@ -88,3 +88,12 @@ a {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
+.textarea {
+  border-color: transparent!important;
+}
+
+.textarea:disabled {
+  opacity: 1!important;
+  cursor: initial;
+}

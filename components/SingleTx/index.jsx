@@ -16,7 +16,7 @@ export default function SingleTx({ txn }) {
       <Link href={`https://etherscan.io/tx/${txn?.tx_hash}`} color='blue.500' isExternal>
         {txn?.tx_hash }
       </Link >
-      <p>{humanizedCreatedAtTime} ago</p>
+      <p><strong>{humanizedCreatedAtTime} ago</strong></p>
       </div>
       <ul>
         <li className='list-item'><strong>from</strong> {txn?.from_address}</li>
