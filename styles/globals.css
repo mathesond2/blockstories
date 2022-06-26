@@ -51,3 +51,19 @@ a {
 .footer .link-list {
   justify-content: center;
 }
+
+.list-item {
+  list-style: none;
+}
+
+.single-tx-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storyblocks-wrapper {
+  border-right: solid .5rem black;
+  padding-right: 1rem;
+}

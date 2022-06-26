@@ -1,40 +1,35 @@
-import { useEffect, useState } from "react";
+import {
+  Link,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from '@chakra-ui/react'
 import humanizeDuration from "humanize-duration";
-import getTransaction from "../../pages/api/getTransaction";
 
-export default function SingleTx({ txHash }) {
-  const [transaction, setTransaction] = useState();
-
-  const getTransactionData = async (tx) => {
-    try {
-      const response = await getTransaction(tx);
-      setTransaction(response?.data?.data?.items[0]);
-    } catch (err) {
-      console.log({ err });
-    }
-  };
-
-  useEffect(() => {
-    if (txHash) {
-      getTransactionData(txHash);
-    }
-  }, [txHash]);
-
+export default function SingleTx({ txn }) {
   let humanizedCreatedAtTime;
-  if (transaction?.block_signed_at) {
+  if (txn?.block_signed_at) {
     humanizedCreatedAtTime = humanizeDuration(
-      new Date().getTime() - Date.parse(transaction.block_signed_at),
+      new Date().getTime() - Date.parse(txn.block_signed_at),
       { largest: 1, maxDecimalPoints: 0 }
     );
   }
 
   return (
     <>
-      <p>DATE: {transaction?.block_signed_at}</p>
-      <p>DATA HUMANIZED: {humanizedCreatedAtTime} ago</p>
-      <p>TX HASH: {transaction?.tx_hash}</p>
-      <p>FROM: {transaction?.from_address}</p>
-      <p>TO: {transaction?.to_address}</p>
+      <div className='single-tx-flex-wrapper'>
+      <Link href={`https://etherscan.io/tx/${txn?.tx_hash}`} color='teal.500' isExternal>
+        {txn?.tx_hash }
+      </Link >
+      <p>{humanizedCreatedAtTime} ago</p>
+      </div>
+      <ul>
+        <li className='list-item'><strong>from</strong> {txn?.from_address}</li>
+        <li className='list-item'><strong>to</strong> {txn?.to_address}</li>
+        <li className='list-item'><strong>gas price</strong> {txn?.gas_price}</li>
+      </ul>
     </>
   );
 }
