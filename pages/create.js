@@ -86,7 +86,7 @@ function StoryBlock(props) {
                     setIsAdded(true);
                     onAdd({
                       txId: txnHash,
-                      timestamp: txnHashData.block_signed_at,
+                      timestamp: Date.parse(txnHashData.block_signed_at) / 1000,
                       comment: txnHashComment
                   })}
                 }
@@ -101,14 +101,10 @@ function StoryBlock(props) {
   )
 }
 
-
-
-
 export default function Create() {
   const [storyComments, setStoryComments] = useState([]);
   const [title, setTitle] = useState('');
   const [isPublished, setIsPublished] = useState(false);
-
 
   return (
     <div className={styles.container}>
@@ -130,21 +126,18 @@ export default function Create() {
         <Box className="storyblocks-wrapper">
           {storyComments?.map((_, i) => (
             <StoryBlock
-            key={i}
+              key={i}
               isPublished={isPublished}
               onRemove={() => {
                 const filteredComments = storyComments.filter((_, j) => j !== i);
                 setStoryComments(filteredComments)
               }}
               onAdd={(newComment) => {
-                console.log(newComment);
-                const commentToUpdate = storyComments
-                  .find((_, j) => j === i)
-                  .comment = newComment;
-                const updatedStoryComments = storyComments;
-                updatedStoryComments[i] = commentToUpdate;
-
-                setStoryComments(updatedStoryComments)
+                setStoryComments((prevState) => {
+                  const newArr = [...prevState];
+                  newArr[i] = newComment;
+                  return newArr;
+                });
               }}
             />
           ))}
@@ -157,7 +150,7 @@ export default function Create() {
                 variant='outline'
                 disabled={!title.length}
                 onClick={() => {
-                  setStoryComments([...storyComments, {}])
+                  setStoryComments((prevState) => [...prevState, {}])
                 }}
               >
                 Add {storyComments.length ? 'another' : 'a'} transaction
@@ -182,7 +175,6 @@ export default function Create() {
           </Box>
           )
         }
-
         </Container>
       </main>
     </div>
