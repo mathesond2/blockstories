@@ -1,5 +1,4 @@
 import styles from '../styles/Home.module.css'
-import Nav from '../components/nav';
 import HeadMetadata from '../components/headMetadata';
 import {
   Container,
@@ -20,7 +19,6 @@ function StoryBlock(props) {
     try {
       const URL = `https://api.covalenthq.com/v1/1/transaction_v2/${txnHash}/?key=${process.env.COVALENT_API_KEY}`;
       const response = await Axios.get(URL);
-      console.log('response', response);
       setTxnHashData(response?.data?.data?.items[0]);
     } catch (err) {
       console.log({ err });
@@ -58,28 +56,27 @@ function StoryBlock(props) {
 export default function Story() {
   const [txnData, setTxnData] = useState();
   const router = useRouter()
-  const { txnHash } = router.query;
+  const { storyId } = router.query;
 
   const getTransactionData = async (tx) => {
     try {
-      const URL = `https://block-stories-api.herokuapp.com/v1/tx/${tx}/stories`;
+      const URL = `https://block-stories-api.herokuapp.com/v1/stories/${tx}`;
       const response = await Axios.get(URL);
-      setTxnData(response.data.results[0]);
+      setTxnData(response.data);
     } catch (err) {
       console.log({ err });
     }
   };
 
   useEffect(() => {
-    if (txnHash) getTransactionData(txnHash);
-  }, [txnHash]);
+    if (storyId) getTransactionData(storyId);
+  }, [storyId]);
 
 
   return (
     txnData && (
       <div className={styles.container}>
         <HeadMetadata/>
-        <Nav/>
         <main>
           <Container maxW="container.xl">
             <Stack spacing={3} mb={4}>
