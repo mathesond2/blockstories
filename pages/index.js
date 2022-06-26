@@ -47,7 +47,7 @@ export default function Home() {
           <Heading as='h2' size='xl'>Recent &amp; Popular Stories</Heading>
           <HStack spacing={8} m={4} ml={0}>
             {stories?.map(story => (
-                <Link href={`/story/${story.id}`} key={story.id}>
+                <Link href={`/${story.id}`} key={story.id}>
                   <Box p={5} shadow='md' borderWidth='1px'>
                     <Heading fontSize='xl'>{story.title}</Heading>
                   </Box>
