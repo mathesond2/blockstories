@@ -17,7 +17,6 @@ export default function Home() {
   const [stories, setStories] = useState();
   const getTransactionData = async () => {
     try {
-      // const URL = `https://api.covalenthq.com/v1/1/transaction_v2/${txnHash}/?key=${process.env.COVALENT_API_KEY}`;
       const URL = 'https://block-stories-api.herokuapp.com/v1/stories';
       const response = await Axios.get(URL);
       setStories(response.data.results);
