@@ -16,6 +16,7 @@ import Profile from "../components/Profile";
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true);
   const [userAddress, setUserAddress] = useState();
+  const [storyId, setStoryId] = useState();
   const router = useRouter();
 
   const AppContext = createContext();
@@ -33,14 +34,10 @@ function MyApp({ Component, pageProps }) {
       }
     }
     checkConnection();
-    listenForRouteChangeEvents();
-  }, []);
-
-  async function listenForRouteChangeEvents() {
     router.events.on("routeChangeStart", () => {
       refreshAuthToken();
     });
-  }
+  }, [router.events]);
 
   async function signIn() {
     try {
@@ -93,10 +90,14 @@ function MyApp({ Component, pageProps }) {
                 <Link href="/">BlockStories</Link>
               </li>
               <li className="link-list__item">
-                <Input placeholder="search..." />
+                <Input
+                  placeholder="search by story id"
+                  value={storyId}
+                  onChange={(e) => setStoryId(e.currentTarget.value)}
+                />
               </li>
               <li className="link-list__item">
-                <Link href="/explore">Explore</Link>
+                <Link href={storyId ? `/${storyId}` : '#'}>Search</Link>
               </li>
               <li className="link-list__item">
                 <Link href="/create">Create</Link>

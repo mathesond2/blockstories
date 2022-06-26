@@ -91,9 +91,14 @@ a {
 
 .textarea {
   border-color: transparent!important;
+  padding-left: 0!important;
 }
 
 .textarea:disabled {
   opacity: 1!important;
   cursor: initial;
+}
+
+nav .link-list__item:first-of-type {
+  margin-left: 0;
 }
