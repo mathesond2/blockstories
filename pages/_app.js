@@ -32,14 +32,10 @@ function MyApp({ Component, pageProps }) {
       }
     }
     checkConnection();
-    listenForRouteChangeEvents();
-  }, []);
-
-  async function listenForRouteChangeEvents() {
     router.events.on("routeChangeStart", () => {
       refreshAuthToken();
     });
-  }
+  }, [router.events]);
 
   async function signIn() {
     try {
