@@ -1,5 +1,5 @@
 import { createClient as createUrqlClient } from "urql";
-import { refreshAuthToken } from "../../utils";
+import { refreshAuthToken } from "../utils";
 
 export const APIURL = "https://api.lens.dev";
 export const STORAGE_KEY = "LH_STORAGE_KEY";

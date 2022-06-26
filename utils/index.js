@@ -1,5 +1,5 @@
-import { basicClient, STORAGE_KEY } from "./pages/api";
-import { refresh as refreshMutation } from "./pages/api/mutations";
+import { basicClient, STORAGE_KEY } from "../api";
+import { refresh as refreshMutation } from "../api/mutations";
 import { ethers, utils } from "ethers";
 import omitDeep from "omit-deep";
 

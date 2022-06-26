@@ -9,7 +9,7 @@ import {
   STORAGE_KEY,
   authenticate as authenticateMutation,
   getChallenge,
-} from "./api";
+} from "../api";
 import { parseJwt, refreshAuthToken } from "../utils";
 
 function MyApp({ Component, pageProps }) {
