@@ -3,7 +3,6 @@ import styles from "../styles/Home.module.css";
 import {
   Container,
 } from "@chakra-ui/react";
-import Nav from "../components/nav";
 import Footer from "../components/footer";
 import IPFSStorage from "../components/nftStorage";
 import HeadMetadata from "../components/headMetadata";
@@ -27,8 +26,7 @@ const nftData = {
 export default function Home() {
   return (
     <div className={styles.container}>
-    <HeadMetadata/>
-    <Nav/>
+      <HeadMetadata />
       <main className={styles.main}>
         <Container maxW="container.xl">
           <h1>content here</h1>
