@@ -15,7 +15,7 @@ import { parseJwt, refreshAuthToken } from "../utils";
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true);
   const [userAddress, setUserAddress] = useState();
-  const [searchTxn, setSearchTxn] = useState();
+  const [storyId, setStoryId] = useState();
   const router = useRouter();
 
   const AppContext = createContext();
@@ -90,13 +90,13 @@ function MyApp({ Component, pageProps }) {
               </li>
               <li className="link-list__item">
                 <Input
-                  placeholder="0x1234..."
-                  value={searchTxn}
-                  onChange={(e) => setSearchTxn(e.currentTarget.value)}
+                  placeholder="search by story id"
+                  value={storyId}
+                  onChange={(e) => setStoryId(e.currentTarget.value)}
                 />
               </li>
               <li className="link-list__item">
-                <Link href={searchTxn ? `/${searchTxn}` : '#'}>Search</Link>
+                <Link href={storyId ? `/${storyId}` : '#'}>Search</Link>
               </li>
               <li className="link-list__item">
                 <Link href="/create">Create</Link>
