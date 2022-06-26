@@ -48,7 +48,7 @@ export default function Transaction() {
             <Box className="storyblocks-wrapper">
               <ul style={{ listStyleType: "none" }}>
                 {txnData.map((txn, i) => (
-                  <Stack spacing={3} mt={8} mb={8} shadow="md" p={5}>
+                  <Stack spacing={3} mt={8} mb={8} shadow="md" p={5} key={i}>
                     <li style={{ listStyleType: "none" }}>
                       <Text style={{ fontWeight: "bold" }}>
                         <Link href={`/${txn.id}`}>{txn.title}</Link>
