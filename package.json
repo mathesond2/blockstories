@@ -14,9 +14,11 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "framer-motion": "^6.3.15",
     "humanize-duration": "^3.27.2",
     "next": "12.1.6",
+    "nft.storage": "^6.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
