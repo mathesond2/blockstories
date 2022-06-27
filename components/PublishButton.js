@@ -129,21 +129,16 @@ const PublishButton = ({ nftData, isDisabled }) => {
 
     // NOTE HARDCODE profileId
     const profileId = "0x7cdc";
-    // const ipfsResult = {
-    // path: "QmTkhwwKqEx9Wv1ujqeoUbhW1Hij1xt8fNKuw8fcCVdJQh",
-    // };
     const ipfsResult = {
       path: final.cid,
     };
 
     // fetchPublication();
 
-    const sendPostToLens = await post(ipfsResult.path, profileId);
-    console.log(`successfully posted ...`);
-    console.log({ sendPostToLens });
-    // sendPostToLens.blockHash
+    // const sendPostToLens = await post(ipfsResult.path, profileId);
+    // console.log(`successfully posted ...`);
+    // console.log({ sendPostToLens });
 
-    nftData.lensPubId = "duy-443ddsdd2";
     console.log(nftData);
     const response = await fetch(BS_API_ENDPOINT + "/v1/stories/", {
       method: "POST",
